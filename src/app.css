@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* ermald green theme */
+    --neon-green:#16F529; /* old color: #c6f97f */
+    --normal-green:#49b06e;
+    --flat-sea-blue:#0d4e58;
+    --sea-blue: #104660;
+    --dark-sea-blue:#041732;
+
+    /* ravenclaw theme */
+    --dark-navy-blue:#0e1a40;
+    --navy-blue:#222f5b;
+    --slate-gray:#5d5d5d;
+    --golden-brown:#946b2d;
+    --black:#000000;
+    --papayawhip: #FFEFD5;
+}
+
+body {
+    @apply text-white font-roboto;
+}

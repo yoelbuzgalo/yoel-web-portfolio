@@ -1,0 +1,26 @@
+{
+	"name": "yoel-website",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@iconify/json": "^2.2.233",
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"autoprefixer": "^10.4.19",
+		"postcss": "^8.4.40",
+		"svelte": "^5.0.0-next.136",
+		"tailwindcss": "^3.4.7",
+		"unplugin-icons": "^0.19.1",
+		"vite": "^5.0.3"
+	},
+	"type": "module",
+	"dependencies": {
+		"svelte-typewrite": "^2.0.0"
+	}
+}
