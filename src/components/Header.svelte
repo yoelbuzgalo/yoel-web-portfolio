@@ -16,8 +16,19 @@
 <style>
     .nav-button {
         /* constant CSS */
-        @apply text-neon-green underline rounded-md px-2 py-1 shadow-sm shadow-neon-green; 
+        @apply text-white uppercase rounded-md px-2 py-1 tracking-widest;
         /* transition CSS */
         @apply transition ease-in-out delay-150 hover:bg-black hover:bg-opacity-50 hover:scale-110 text-sm duration-300;
+    }
+    
+    .nav-button::after { 
+        @apply absolute left-1/2 bottom-0 block bg-none bg-repeat bg-scroll bg-transparent h-0.5 w-0;
+        @apply bg-neon-green;
+        content: "";
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    }
+
+    .nav-button:hover::after { 
+        @apply shadow-sm shadow-neon-green w-full left-0;
     }
 </style>
