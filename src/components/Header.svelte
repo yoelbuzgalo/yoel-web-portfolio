@@ -3,7 +3,7 @@
         <image src="/images/logo2.png" alt="custom yb logo icon" class="h-auto m-2 max-w-20 rounded-full bg-transparent"/>
         <h1>Portfolio Website</h1>
     </div>
-    <nav class="flex flex-row justify-between bg-opacity-0 items-center">
+    <nav>
         <div class="mx-5" id="nav-buttons">
             <button on:click={() => console.log("Navigate to /home and scroll to top")} id="home" class="nav-button">Home</button>
             <button on:click={() => console.log("Navigate to /home and scroll to bottom")} id="about" class="nav-button">About</button>
@@ -14,6 +14,10 @@
 </header>
 
 <style>
+    nav {
+        @apply flex flex-row justify-between bg-opacity-0 items-center;
+    }
+
     .nav-button {
         /* constant CSS */
         @apply text-white uppercase rounded-md px-2 py-1 tracking-widest;
