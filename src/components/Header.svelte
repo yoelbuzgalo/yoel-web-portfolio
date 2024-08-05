@@ -1,14 +1,47 @@
+<script>
+    import { goto } from '$app/navigation';
+    import { page } from '$app/stores';
+
+    const validPages = Object.freeze({
+        HOME: '/',
+        PROJECTS: '/projects',
+        CONTACT: '/contact'
+    });
+
+    let redirect = async (endpoint, scroll) => {
+        const currentPath = $page.url.pathname;
+        console.log("Current Path:", currentPath);
+        console.log("Endpoint:", endpoint);
+
+        if (endpoint === validPages.HOME || endpoint === validPages.ABOUT) {
+            if (currentPath !== endpoint) {
+                goto(endpoint);
+            } else if (scroll) {
+                const target = document.querySelector(`#${scroll}`);
+                if (!target) {
+                    console.log("Target not found");
+                    return;
+                }
+                console.log("Scrolling");
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            goto(endpoint);
+        }
+    };
+</script>
+
 <header class="flex flex-col justify-start items-center mb-4">
     <div id="image-intro" class="flex flex-row justify-start items-center">
-        <image src="/images/logo2.png" alt="custom yb logo icon" class="h-auto m-2 max-w-20 rounded-full bg-transparent"/>
+        <img src="/images/logo2.png" alt="custom yb logo icon" class="h-auto m-2 max-w-20 rounded-full bg-transparent"/>
         <h1>Portfolio Website</h1>
     </div>
     <nav>
         <div class="mx-5" id="nav-buttons">
-            <button on:click={() => console.log("Navigate to /home and scroll to top")} id="home" class="nav-button">Home</button>
-            <button on:click={() => console.log("Navigate to /home and scroll to bottom")} id="about" class="nav-button">About</button>
-            <button on:click={() => console.log("Navigate to /projects")} id="projects" class="nav-button">Projects</button>
-            <button on:click={() => console.log("Navigate to /contact")} id="contact" class="nav-button">Contact</button>
+            <button on:click={() => redirect(validPages.HOME, "home")} id="home" class="nav-button">Home</button>
+            <button on:click={() => redirect(validPages.HOME, "about")} id="about" class="nav-button">About</button>
+            <button on:click={() => redirect(validPages.PROJECTS, null)} id="projects" class="nav-button">Projects</button>
+            <button on:click={() => redirect(validPages.CONTACT, null)} id="contact" class="nav-button">Contact</button>
         </div>
     </nav>
 </header>

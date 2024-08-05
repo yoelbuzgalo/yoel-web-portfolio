@@ -4,8 +4,8 @@
     import Footer from "../components/Footer.svelte";
 </script>
 
-<main>
-    <Header />
+<main class="flex flex-col h-screen overflow-hidden">
+    <Header/>
     <slot />
-    <Footer />
+    <Footer/>
 </main>
