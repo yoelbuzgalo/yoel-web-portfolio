@@ -1,6 +1,7 @@
 <script>
     import { goto } from '$app/navigation';
     import { page } from '$app/stores';
+    import { onMount } from 'svelte';
 
     const validPages = Object.freeze({
         HOME: '/',
@@ -10,24 +11,24 @@
 
     let redirect = async (endpoint, scroll) => {
         const currentPath = $page.url.pathname;
-        console.log("Current Path:", currentPath);
-        console.log("Endpoint:", endpoint);
 
-        if (endpoint === validPages.HOME || endpoint === validPages.ABOUT) {
+        if (endpoint === validPages.HOME) {
             if (currentPath !== endpoint) {
-                goto(endpoint);
-            } else if (scroll) {
+                await goto(endpoint);
+            } 
+            if (scroll) {
                 const target = document.querySelector(`#${scroll}`);
-                if (!target) {
-                    console.log("Target not found");
-                    return;
+                if (target) {
+                    console.log("Found:" + target);
+                    target.scrollIntoView({behavior: 'smooth'});
+                } else {
+                        console.log("Target not found")
                 }
-                console.log("Scrolling");
-                target.scrollIntoView({ behavior: 'smooth' });
             }
         } else {
             goto(endpoint);
         }
+
     };
 </script>
 
@@ -38,10 +39,10 @@
     </div>
     <nav>
         <div class="mx-5" id="nav-buttons">
-            <button on:click={() => redirect(validPages.HOME, "home")} id="home" class="nav-button">Home</button>
-            <button on:click={() => redirect(validPages.HOME, "about")} id="about" class="nav-button">About</button>
-            <button on:click={() => redirect(validPages.PROJECTS, null)} id="projects" class="nav-button">Projects</button>
-            <button on:click={() => redirect(validPages.CONTACT, null)} id="contact" class="nav-button">Contact</button>
+            <button on:click={() => redirect(validPages.HOME, "home")} id="home-button" class="nav-button">Home</button>
+            <button on:click={() => redirect(validPages.HOME, "about")} id="about-button" class="nav-button">About</button>
+            <button on:click={() => redirect(validPages.PROJECTS, null)} id="projects-button" class="nav-button">Projects</button>
+            <button on:click={() => redirect(validPages.CONTACT, null)} id="contact-button" class="nav-button">Contact</button>
         </div>
     </nav>
 </header>
