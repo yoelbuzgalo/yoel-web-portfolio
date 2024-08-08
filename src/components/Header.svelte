@@ -39,8 +39,8 @@
     </div>
     <nav>
         <div class="mx-5" id="nav-buttons">
-            <button on:click={() => redirect(validPages.HOME, "home")} id="home-button" class="nav-button">Home</button>
-            <button on:click={() => redirect(validPages.HOME, "about")} id="about-button" class="nav-button">About</button>
+            <button on:click={() => redirect(validPages.HOME, "home-section")} id="home-button" class="nav-button">Home</button>
+            <button on:click={() => redirect(validPages.HOME, "about-section")} id="about-button" class="nav-button">About</button>
             <button on:click={() => redirect(validPages.PROJECTS, null)} id="projects-button" class="nav-button">Projects</button>
             <button on:click={() => redirect(validPages.CONTACT, null)} id="contact-button" class="nav-button">Contact</button>
         </div>
