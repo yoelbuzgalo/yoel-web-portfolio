@@ -15,7 +15,7 @@
 </script>
 
 <section id="{sectionName}" class="snap-start h-screen w-screen">
-    <div class="flex flex-col justify-center items-center w-full h-auto">
+    <div class="flex flex-col justify-center items-center w-full h-auto pt-10 px-52">
         <slot/>
         {#if nextSectionName}
             <button on:click={scrollFunction} class="floating w-fit">

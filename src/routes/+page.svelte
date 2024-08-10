@@ -2,7 +2,8 @@
     import { TypeWriter } from "svelte-typewrite";
     import { fly } from "svelte/transition";
     import { onMount } from "svelte";
-    import HomeSection from "../components/HomeSection.svelte";
+    import ScrollableSection from "../components/ScrollableSection.svelte";
+    import ExpandableBox from "../components/ExpandableBox.svelte";
 
     let isVisible = false;
 
@@ -12,34 +13,35 @@
         }, 500)
     })
 
+    let expandedBoolean = false;
+
 </script>
 
 <div id="home-page" class="overflow-y-scroll snap-mandatory snap-y">
-    <HomeSection sectionName="home-section" nextSectionName="about-section">
-        <div class="flex w-full h-auto py-10 px-52">
-            <div class="flex flex-row justify-evenly w-full h-auto">
-                <article class="article-wrapper py-10">
-                    <h1 class="text-xl mb-5">Hi there! My name is <strong>Yoel B. Buzgalo</strong></h1>
-                    <div class="intro-wrapper">
-                        <h1 class="mr-5">and I'm a ...</h1>
-                        <div class="relative w-fit bg-black bg-opacity-50 rounded-sm mr-5">
-                            <TypeWriter texts={["Software Engineer", "Practical Electrical Engineer"]} waitBetweenTexts=1000/>
-                            <div class="shadow-sm bg-neon-green h-0.5 bottom-0 left-0 shadow-neon-green"></div>
-                        </div>
-                    </div>
-                </article>
-                {#if isVisible}
-                    <img class="framed" transition:fly="{{y:100, duration: 1000}}" src="/images/tlv1.jpg" alt="Yoel Buzgalo sitting in Tel Aviv with laptop"/>
-                {/if}
-        </div>
-    </HomeSection>
-    <HomeSection sectionName="about-section" nextSectionName={null}>
-        <div class="article-img-wrapper py-10 px-52">
+    <ScrollableSection sectionName="home-section" nextSectionName="about-section">
+        <div class="flex flex-row justify-evenly w-full h-auto">
             <article class="article-wrapper">
-                <h1 class="text-xl mb-5">Here's some interesting facts about me!</h1>
+                <h1 class="text-xl mb-5">Hi there! My name is <strong>Yoel B. Buzgalo</strong></h1>
+                <div class="intro-wrapper">
+                    <h1 class="mr-5">and I'm a ...</h1>
+                    <div class="relative w-fit bg-black bg-opacity-50 rounded-sm mr-5">
+                        <TypeWriter texts={["Software Engineer", "Practical Electrical Engineer"]} waitBetweenTexts=1000/>
+                        <div class="shadow-sm bg-neon-green h-0.5 bottom-0 left-0 shadow-neon-green"></div>
+                    </div>
+                </div>
             </article>
+            {#if isVisible}
+                <img class="framed" transition:fly="{{y:100, duration: 1000}}" src="/images/tlv1.jpg" alt="Yoel Buzgalo sitting in Tel Aviv with laptop"/>
+            {/if}
         </div>
-    </HomeSection>
+    </ScrollableSection>
+    <ScrollableSection sectionName="about-section" nextSectionName={null}>
+        <div class="flex flex-col items-center justify-center">
+            <ExpandableBox date="August 2023 - Current" role="B.S. Software Engineer Student" imgSrc="images/logo2.png">
+                Description here
+            </ExpandableBox>
+        </div>
+    </ScrollableSection>
 </div>
 
 <style>

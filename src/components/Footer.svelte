@@ -4,7 +4,7 @@
     import Email from '~icons/ic/baseline-email'
 </script>
 
-<footer class="flex flex-row justify-end items-center my-4 fixed left-0 bottom-0 w-full">
+<footer class="flex flex-row justify-end items-center my-4 fixed left-0 bottom-0 w-full overflow-hidden">
     <div class="mx-5 flex flex-row items-center justify-end" id="link-buttons">
         <a href="mailto:yoelbuzgalo@gmail.com" class="footer-button rounded-sm items-center justify-center scale-125 mx-2">
             <Email/>
