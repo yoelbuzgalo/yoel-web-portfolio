@@ -22,3 +22,12 @@
 body {
     @apply text-white font-roboto;
 }
+
+.framed {
+    @apply text-neon-green overflow-hidden object-cover;
+    box-shadow: -45px -45px 0 -40px var(--neon-green), 45px 45px 0 -40px var(--neon-green);
+}
+
+* {
+    outline: 1px solid red;
+}

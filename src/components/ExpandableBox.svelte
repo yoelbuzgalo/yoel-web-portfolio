@@ -3,10 +3,7 @@
     import SolidArrow from '~icons/bxs/right-arrow';
     import LinedArrow from '~icons/bx/right-arrow';
 
-    export let date;
-    export let role;
-    export let imgSrc;
-    export let imgAlt;
+    export let data;
 
     let expandBox = false;
 
@@ -15,12 +12,15 @@
     };
 </script>
 
-<div class="flex flex-col justify-between">
-    <div class="flex flex-row justify-between items-center">
-        {#if imgSrc}
-            <img class="framed max-w-sm w-24" src={imgSrc} alt={imgAlt}>
+<div class="flex flex-col items-start justify-center my-5 bg-black bg-opacity-50 rounded-md p-5">
+    <div class="flex flex-row justify-center items-center">
+        {#if data.imgSrc}
+            <img class="framed max-w-sm w-24" src={data.imgSrc} alt={data.imgAlt}>
         {/if}
-        <h1 class="px-3 text-lg">{date} - {role}</h1>
+        <div class="flex flex-col">
+            <h1 class="px-3 text-lg">{data.role}</h1>
+            <h1 class="px-3 text-lg font-semibold">{data.date}</h1>
+        </div>
         <button on:click={toggleExpand}>
             {#if expandBox}
                 <div class="rotate-icon">
@@ -34,10 +34,14 @@
         </button>
     </div>
     {#if expandBox}
-        <div transition:fly="{{x:-100, duration: 1000}}" class="flex flex-col items-center justify-center pt-10">
-            <p>
-                <slot/>
-            </p>
+        <div transition:fly="{{x:-100, duration: 1000}}" class="mt-5 p-5 bg-black bg-opacity-50 rounded-md relative top-0 left-0">
+            <ol class="ml-5 list-disc">
+                {#each data.descriptions as description}
+                    <li>
+                        {description}
+                    </li>
+                {/each}
+            </ol>
         </div>
     {/if}
 </div>
@@ -60,10 +64,5 @@
             transform: rotate(90deg);
             @apply text-neon-green;
         }
-    }
-
-    .framed {
-        @apply text-neon-green max-w-xs overflow-hidden object-cover;
-        box-shadow: -45px -45px 0 -40px var(--neon-green), 45px 45px 0 -40px var(--neon-green);
     }
 </style>

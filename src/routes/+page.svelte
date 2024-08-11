@@ -5,6 +5,8 @@
     import ScrollableSection from "../components/ScrollableSection.svelte";
     import ExpandableBox from "../components/ExpandableBox.svelte";
 
+    export let data;
+
     let isVisible = false;
 
     onMount(() => {
@@ -12,9 +14,6 @@
             isVisible = true;
         }, 500)
     })
-
-    let expandedBoolean = false;
-
 </script>
 
 <div id="home-page" class="overflow-y-scroll snap-mandatory snap-y">
@@ -31,15 +30,37 @@
                 </div>
             </article>
             {#if isVisible}
-                <img class="framed" transition:fly="{{y:100, duration: 1000}}" src="/images/tlv1.jpg" alt="Yoel Buzgalo sitting in Tel Aviv with laptop"/>
+                <img class="framed lg:max-w-lg md:max-w-sm" transition:fly="{{y:100, duration: 1000}}" src="/images/tlv1.jpg" alt="Yoel Buzgalo sitting in Tel Aviv with laptop"/>
             {/if}
         </div>
     </ScrollableSection>
     <ScrollableSection sectionName="about-section" nextSectionName={null}>
-        <div class="flex flex-col items-center justify-center">
-            <ExpandableBox date="August 2023 - Current" role="B.S. Software Engineer Student" imgSrc="images/logo2.png">
-                Description here
-            </ExpandableBox>
+        <div id="timeline" class="flex flex-col items-center justify-center">
+            {#each data.timeline as item, index}
+                <div class="max-w7xl mx-auto w-full grid grid-cols-9 overflow-y-scroll">
+                    {#if (index % 2 ==0)}
+                    <div class="col-span-4 w-full">
+                        <ExpandableBox data={item}/>
+                    </div>
+                    <div class="relative col-span-1 flex justify-center items-center">
+                        <div class="h-full w-1 bg-white"></div>
+                        <div class="absolute w-6 h-6 rounded-full bg-white z-10 text-white text-center"></div>
+                    </div>
+                    <div class="col-span-4 w-full h-full">
+                    </div>
+                    {:else}
+                    <div class="col-span-4 w-full h-full">
+                    </div>
+                    <div class="relative col-span-1 flex justify-center items-center">
+                        <div class="h-full w-1 bg-white"></div>
+                        <div class="absolute w-6 h-6 rounded-full bg-white z-10 text-white text-center"></div>
+                    </div>
+                    <div class="col-span-4 w-full h-full">
+                        <ExpandableBox data={item}/>
+                    </div>
+                    {/if}
+                </div>
+            {/each}
         </div>
     </ScrollableSection>
 </div>
@@ -51,9 +72,5 @@
     .intro-wrapper {
         @apply md:flex-row;
         @apply flex text-lg;
-    }
-    .framed {
-        @apply text-neon-green lg:max-w-lg md:max-w-md sm:max-w-sm overflow-hidden object-cover;
-        box-shadow: -45px -45px 0 -40px var(--neon-green), 45px 45px 0 -40px var(--neon-green);
     }
 </style>
