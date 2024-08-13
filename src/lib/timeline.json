@@ -4,7 +4,7 @@
         "role": "B.Sc. Software Engineering Student",
         "venue": "Rochester Institute of Technology",
         "location": "Rochester, New York",
-        "imgSrc": "/images/logo2.png",
+        "imgSrc": "/images/RIT_RGB_hor.png",
         "imgAlt": "",
         "descriptions" : ["Cumulative GPA: 3.89", "Dean's List for 2 Consecutive Semesters", "President of WOLK Culture Club"]
     },
@@ -13,17 +13,26 @@
         "role": "Electrical Panel and Controls Engineer",
         "venue": "Antigron Industries Ltd.",
         "location": "Holon, Israel",
-        "imgSrc": "/images/logo.png",
+        "imgSrc": "/images/Antigron.png",
         "imgAlt": "",
-        "descriptions": ["U.S. GPA equivalent of 3.95, as evaluated by the Educational Credential Evaluators", "Graduated with honors and received certification of excellence for outstanding academic performance.", "The degree was completed as part of the Israeli Air Force cadet program."]
+        "descriptions": ["Developed electrical control panels and distribution boards drawings for over 150 industrial projects.", "Exceptionally experienced in HVAC control systems, engineered boards capable of delivering up to 3x630A.", "Assessed engineering change proposals, created detailed bills of materials, and estimated costs.", "Performed thermographic inspections, compiled diagnostic reports."]
     },
     {
         "date": "August 2018 - June 2020",
         "role": "Associate Degree in Electrical Engineering",
         "venue": "Amal Holtz Air Force Multidisciplinary Technological College",
         "location": "Tel Aviv, Israel",
-        "imgSrc": "/images/logo.png",
+        "imgSrc": "/images/Amal.png",
         "imgAlt": "",
         "descriptions": ["U.S. GPA equivalent of 3.95, as evaluated by the Educational Credential Evaluators", "Graduated with honors and received certification of excellence for outstanding academic performance.", "The degree was completed as part of the Israeli Air Force cadet program."]
+    },
+    {
+        "date": "August 2015 - June 2020",
+        "role": "Cadet",
+        "venue": "Israeli Air Force",
+        "location": "Tel Aviv, Israel",
+        "imgSrc": "/images/IAF.png",
+        "imgAlt":"",
+        "descriptions": ["Participated in trainings and trips in high school and college, fostering discipline and air force principles.", "Acquired hands-on experience with electrical systems and maintenance procedures.", "Collaborated with a diverse team of cadets and instructors, enhancing communication and teamwork skills."]
     }
 ]

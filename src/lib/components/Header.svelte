@@ -33,7 +33,7 @@
 
 <header class="flex flex-col justify-start items-center relative top-0 left-0 w-full">
     <div id="image-intro" class="flex flex-row justify-start items-center">
-        <img src="/images/logo2.png" alt="custom yb logo icon" class="h-auto m-2 max-w-20 rounded-full bg-transparent"/>
+        <img src="/images/logo.png" alt="custom yb logo icon" class="h-auto m-2 max-w-20 rounded-full bg-transparent"/>
         <h1>Portfolio Website</h1>
     </div>
     <nav>

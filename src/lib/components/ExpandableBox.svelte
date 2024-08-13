@@ -3,7 +3,6 @@
     import SolidArrow from '~icons/bxs/right-arrow';
     import LinedArrow from '~icons/bx/right-arrow';
     
-
     export let data;
 
     let expandBox = false;
@@ -16,7 +15,7 @@
 <div class="flex flex-col items-start justify-center my-5 bg-black bg-opacity-50 rounded-md p-5">
     <div class="flex flex-row justify-center items-center">
         {#if data.imgSrc}
-            <img class="framed max-w-sm w-24" src={data.imgSrc} alt={data.imgAlt}>
+            <img class="framed h-24 w-24 object-contain" src={data.imgSrc} alt={data.imgAlt}>
         {/if}
         <div class="flex flex-col justify-center items-start">
             <h1 class="px-3 text-lg font-bold">{data.role}</h1>
@@ -39,7 +38,7 @@
         <div transition:fly="{{x:-100, duration: 1000}}" class="mt-5 p-5 bg-black bg-opacity-50 rounded-md relative top-0 left-0">
             <ol class="ml-5 list-disc">
                 {#each data.descriptions as description}
-                    <li>
+                    <li class="py-2">
                         {description}
                     </li>
                 {/each}

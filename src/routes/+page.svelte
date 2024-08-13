@@ -23,8 +23,6 @@
             footerHeight = footer.offsetHeight;
         }
 
-
-
         setTimeout(()=>{
             isVisible = true;
         }, 500)
