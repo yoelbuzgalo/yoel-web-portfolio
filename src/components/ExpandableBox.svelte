@@ -2,13 +2,20 @@
     import { fly } from "svelte/transition";
     import SolidArrow from '~icons/bxs/right-arrow';
     import LinedArrow from '~icons/bx/right-arrow';
+    import {count} from '/src/stores/store.js'
+    
 
     export let data;
 
     let expandBox = false;
 
+    let increment = () => {
+        // count.set(data);
+    }
+
     let toggleExpand = () => {
         expandBox = !expandBox;
+        increment();
     };
 </script>
 

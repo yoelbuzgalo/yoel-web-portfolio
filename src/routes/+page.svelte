@@ -3,74 +3,54 @@
     import { fly } from "svelte/transition";
     import { onMount } from "svelte";
     import ScrollableSection from "../components/ScrollableSection.svelte";
-    import ExpandableBox from "../components/ExpandableBox.svelte";
-
+    import TimelineBox from "../components/TimelineBox.svelte";
+    
     export let data;
+    let headerHeight;
+    let footerHeight;
 
     let isVisible = false;
 
     onMount(() => {
+        const header = document.querySelector('header');
+        const footer = document.querySelector('footer');
+
+        if (header) {
+            headerHeight = header.offsetHeight;
+        }
+
+        if (footer) {
+            footerHeight = footer.offsetHeight;
+        }
+
+
+
         setTimeout(()=>{
             isVisible = true;
         }, 500)
     })
 </script>
 
-<div id="home-page" class="overflow-y-scroll snap-mandatory snap-y">
+<div id="home-slot" class="snap-mandatory snap-y overflow-y-scroll" style="height: calc(100vh - {headerHeight+footerHeight}px)">
     <ScrollableSection sectionName="home-section" nextSectionName="about-section">
-        <div class="flex flex-row justify-evenly w-full h-auto">
-            <article class="article-wrapper">
-                <h1 class="text-xl mb-5">Hi there! My name is <strong>Yoel B. Buzgalo</strong></h1>
-                <div class="intro-wrapper">
-                    <h1 class="mr-5">and I'm a ...</h1>
-                    <div class="relative w-fit bg-black bg-opacity-50 rounded-sm mr-5">
-                        <TypeWriter texts={["Software Engineer", "Practical Electrical Engineer"]} waitBetweenTexts=1000/>
-                        <div class="shadow-sm bg-neon-green h-0.5 bottom-0 left-0 shadow-neon-green"></div>
-                    </div>
+        <article class="grid grid-cols-9 my-5">
+            <div class="col-span-4">
+                <h1 class="text-xl w-fit">Hi there! My name is <strong>Yoel B. Buzgalo</strong></h1>
+                <h1 class="text-xl w-fit">and I'm a ...</h1>
+                <div class="w-fit bg-black bg-opacity-50 rounded-sm text-xl">
+                    <TypeWriter texts={["Software Engineer", "Practical Electrical Engineer"]} waitBetweenTexts=1000/>
+                    <div class="shadow-sm bg-neon-green h-0.5 shadow-neon-green"></div>
                 </div>
-            </article>
-            {#if isVisible}
-                <img class="framed lg:max-w-lg md:max-w-sm" transition:fly="{{y:100, duration: 1000}}" src="/images/tlv1.jpg" alt="Yoel Buzgalo sitting in Tel Aviv with laptop"/>
-            {/if}
-        </div>
+            </div>
+            <div class="col-span-1 justify-center items-center"></div>
+            <div class="col-span-4 justify-center items-center">
+                {#if isVisible}
+                <img class="framed lg:max-w-lg  md:max-sm" transition:fly="{{y:100, duration: 1000}}" src="/images/tlv1.jpg" alt="Yoel Buzgalo sitting in Tel Aviv with laptop"/>
+                {/if}
+            </div>
+        </article>
     </ScrollableSection>
     <ScrollableSection sectionName="about-section" nextSectionName={null}>
-        <div id="timeline" class="flex flex-col items-center justify-center">
-            {#each data.timeline as item, index}
-                <div class="max-w7xl mx-auto w-full grid grid-cols-9 overflow-y-scroll">
-                    {#if (index % 2 ==0)}
-                    <div class="col-span-4 w-full">
-                        <ExpandableBox data={item}/>
-                    </div>
-                    <div class="relative col-span-1 flex justify-center items-center">
-                        <div class="h-full w-1 bg-white"></div>
-                        <div class="absolute w-6 h-6 rounded-full bg-white z-10 text-white text-center"></div>
-                    </div>
-                    <div class="col-span-4 w-full h-full">
-                    </div>
-                    {:else}
-                    <div class="col-span-4 w-full h-full">
-                    </div>
-                    <div class="relative col-span-1 flex justify-center items-center">
-                        <div class="h-full w-1 bg-white"></div>
-                        <div class="absolute w-6 h-6 rounded-full bg-white z-10 text-white text-center"></div>
-                    </div>
-                    <div class="col-span-4 w-full h-full">
-                        <ExpandableBox data={item}/>
-                    </div>
-                    {/if}
-                </div>
-            {/each}
-        </div>
+        <TimelineBox timelineData={data.timeline}/>
     </ScrollableSection>
 </div>
-
-<style>
-    .article-wrapper {
-        @apply text-white w-full flex md:flex-col justify-start;
-    }
-    .intro-wrapper {
-        @apply md:flex-row;
-        @apply flex text-lg;
-    }
-</style>

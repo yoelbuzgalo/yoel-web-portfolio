@@ -1,7 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
     import { page } from '$app/stores';
-    import { onMount } from 'svelte';
 
     const validPages = Object.freeze({
         HOME: '/',
@@ -32,7 +31,7 @@
     };
 </script>
 
-<header class="flex flex-col justify-start items-center mb-4">
+<header class="flex flex-col justify-start items-center relative top-0 left-0 w-full">
     <div id="image-intro" class="flex flex-row justify-start items-center">
         <img src="/images/logo2.png" alt="custom yb logo icon" class="h-auto m-2 max-w-20 rounded-full bg-transparent"/>
         <h1>Portfolio Website</h1>
