@@ -29,6 +29,10 @@ body {
     box-shadow: -45px -45px 0 -40px var(--neon-green), 45px 45px 0 -40px var(--neon-green);
 }
 
+.green-line {
+    @apply h-0.5 bg-neon-green shadow-sm shadow-neon-green;
+}
+
 /* * {
     outline: 1px solid red;
 } */

@@ -2,8 +2,8 @@
     import { TypeWriter } from "svelte-typewrite";
     import { fly } from "svelte/transition";
     import { onMount } from "svelte";
-    import ScrollableSection from "../components/ScrollableSection.svelte";
-    import TimelineBox from "../components/TimelineBox.svelte";
+    import ScrollableSection from "$lib/components/ScrollableSection.svelte";
+    import TimelineBox from "$lib/components/TimelineBox.svelte";
     
     export let data;
     let headerHeight;
@@ -33,13 +33,13 @@
 
 <div id="home-slot" class="snap-mandatory snap-y overflow-y-scroll" style="height: calc(100vh - {headerHeight+footerHeight}px)">
     <ScrollableSection sectionName="home-section" nextSectionName="about-section">
-        <article class="grid grid-cols-9 my-5">
+        <article class="grid grid-cols-9 my-5 h-full">
             <div class="col-span-4">
                 <h1 class="text-xl w-fit">Hi there! My name is <strong>Yoel B. Buzgalo</strong></h1>
                 <h1 class="text-xl w-fit">and I'm a ...</h1>
                 <div class="w-fit bg-black bg-opacity-50 rounded-sm text-xl">
                     <TypeWriter texts={["Software Engineer", "Practical Electrical Engineer"]} waitBetweenTexts=1000/>
-                    <div class="shadow-sm bg-neon-green h-0.5 shadow-neon-green"></div>
+                    <div class="green-line"></div>
                 </div>
             </div>
             <div class="col-span-1 justify-center items-center"></div>

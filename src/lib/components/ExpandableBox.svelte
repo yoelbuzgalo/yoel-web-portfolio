@@ -2,20 +2,14 @@
     import { fly } from "svelte/transition";
     import SolidArrow from '~icons/bxs/right-arrow';
     import LinedArrow from '~icons/bx/right-arrow';
-    import {count} from '/src/stores/store.js'
     
 
     export let data;
 
     let expandBox = false;
 
-    let increment = () => {
-        // count.set(data);
-    }
-
     let toggleExpand = () => {
         expandBox = !expandBox;
-        increment();
     };
 </script>
 
@@ -24,8 +18,9 @@
         {#if data.imgSrc}
             <img class="framed max-w-sm w-24" src={data.imgSrc} alt={data.imgAlt}>
         {/if}
-        <div class="flex flex-col">
-            <h1 class="px-3 text-lg">{data.role}</h1>
+        <div class="flex flex-col justify-center items-start">
+            <h1 class="px-3 text-lg font-bold">{data.role}</h1>
+            <h2 class="px-3 font-semibold">{data.venue},{data.location}</h2>
             <h1 class="px-3 text-lg font-semibold">{data.date}</h1>
         </div>
         <button on:click={toggleExpand}>
