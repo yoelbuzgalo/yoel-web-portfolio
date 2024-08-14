@@ -14,7 +14,7 @@
     }
 </script>
 
-<section id="{sectionName}" class="h-full w-full snap-start mx-auto px-28">
+<section id="{sectionName}" class="h-screen w-full snap-start mx-auto pt-28 pb-8 px-28 mb-2">
     <div class="flex flex-col justify-between items-center h-full w-full">
         <slot/>
         {#if nextSectionName}
@@ -23,7 +23,6 @@
         </button>
         {/if}
     </div>
-    
 </section>
 
 <style>

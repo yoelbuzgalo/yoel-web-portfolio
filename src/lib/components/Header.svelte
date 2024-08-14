@@ -31,7 +31,9 @@
     };
 </script>
 
-<header class="flex flex-col justify-start items-center relative top-0 left-0 w-full">
+<header 
+    class="min-h-24 sticky w-full top-0 left-0 flex justify-center flex-col items-center"
+>   
     <div id="image-intro" class="flex flex-row justify-start items-center">
         <img src="/images/logo.png" alt="custom yb logo icon" class="h-auto m-2 max-w-20 rounded-full bg-transparent"/>
         <h1>Portfolio Website</h1>

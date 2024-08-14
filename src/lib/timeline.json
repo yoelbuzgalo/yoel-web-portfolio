@@ -6,7 +6,12 @@
         "location": "Rochester, New York",
         "imgSrc": "/images/RIT_RGB_hor.png",
         "imgAlt": "",
-        "descriptions" : ["Cumulative GPA: 3.89", "Dean's List for 2 Consecutive Semesters", "President of WOLK Culture Club"]
+        "descriptions": [
+            "Cumulative GPA: 3.89",
+            "Dean's List for 2 Consecutive Semesters",
+            "President of WOLK Culture Club"
+        ],
+        "video": "/videos/rit.mp4"
     },
     {
         "date": "May 2019 - June 2021",
@@ -15,7 +20,13 @@
         "location": "Holon, Israel",
         "imgSrc": "/images/Antigron.png",
         "imgAlt": "",
-        "descriptions": ["Developed electrical control panels and distribution boards drawings for over 150 industrial projects.", "Exceptionally experienced in HVAC control systems, engineered boards capable of delivering up to 3x630A.", "Assessed engineering change proposals, created detailed bills of materials, and estimated costs.", "Performed thermographic inspections, compiled diagnostic reports."]
+        "descriptions": [
+            "Developed electrical control panels and distribution boards drawings for over 150 industrial projects.",
+            "Exceptionally experienced in HVAC control systems, engineered boards capable of delivering up to 3x630A.",
+            "Assessed engineering change proposals, created detailed bills of materials, and estimated costs.",
+            "Performed thermographic inspections, compiled diagnostic reports."
+        ],
+        "video": "/videos/antigron.mp4"
     },
     {
         "date": "August 2018 - June 2020",
@@ -24,7 +35,12 @@
         "location": "Tel Aviv, Israel",
         "imgSrc": "/images/Amal.png",
         "imgAlt": "",
-        "descriptions": ["U.S. GPA equivalent of 3.95, as evaluated by the Educational Credential Evaluators", "Graduated with honors and received certification of excellence for outstanding academic performance.", "The degree was completed as part of the Israeli Air Force cadet program."]
+        "descriptions": [
+            "U.S. GPA equivalent of 3.95, as evaluated by the Educational Credential Evaluators",
+            "Graduated with honors and received certification of excellence for outstanding academic performance.",
+            "The degree was completed as part of the Israeli Air Force cadet program."
+        ],
+        "video": "/videos/cadet.mp4"
     },
     {
         "date": "August 2015 - June 2020",
@@ -32,7 +48,12 @@
         "venue": "Israeli Air Force",
         "location": "Tel Aviv, Israel",
         "imgSrc": "/images/IAF.png",
-        "imgAlt":"",
-        "descriptions": ["Participated in trainings and trips in high school and college, fostering discipline and air force principles.", "Acquired hands-on experience with electrical systems and maintenance procedures.", "Collaborated with a diverse team of cadets and instructors, enhancing communication and teamwork skills."]
+        "imgAlt": "",
+        "descriptions": [
+            "Participated in trainings and trips in high school and college, fostering discipline and air force principles.",
+            "Acquired hands-on experience with electrical systems and maintenance procedures.",
+            "Collaborated with a diverse team of cadets and instructors, enhancing communication and teamwork skills."
+        ],
+        "video": "/videos/cadet.mp4"
     }
 ]

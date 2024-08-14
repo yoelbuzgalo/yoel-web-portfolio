@@ -1,18 +1,26 @@
 <script>
     import { fly } from "svelte/transition";
+    import {expandedIndex} from '$lib/stores/expandableStore.js';
     import SolidArrow from '~icons/bxs/right-arrow';
     import LinedArrow from '~icons/bx/right-arrow';
     
     export let data;
+    export let index;
 
-    let expandBox = false;
+    let isExpanded = false;
+    let thisElement;
+
+    expandedIndex.subscribe(value => {
+        isExpanded = (value === index);
+    });
 
     let toggleExpand = () => {
-        expandBox = !expandBox;
+        expandedIndex.set(isExpanded ? null : index);
+        thisElement.scrollIntoView({block: "start"});
     };
 </script>
 
-<div class="flex flex-col items-start justify-center my-5 bg-black bg-opacity-50 rounded-md p-5">
+<div bind:this={thisElement} class="flex flex-col items-start justify-center my-5 bg-black bg-opacity-50 rounded-md p-5">
     <div class="flex flex-row justify-center items-center">
         {#if data.imgSrc}
             <img class="framed h-24 w-24 object-contain" src={data.imgSrc} alt={data.imgAlt}>
@@ -23,7 +31,7 @@
             <h1 class="px-3 text-lg font-semibold">{data.date}</h1>
         </div>
         <button on:click={toggleExpand}>
-            {#if expandBox}
+            {#if isExpanded}
                 <div class="rotate-icon">
                     <SolidArrow id="about-button-2"/>    
                 </div>
@@ -34,7 +42,7 @@
             {/if}
         </button>
     </div>
-    {#if expandBox}
+    {#if isExpanded}
         <div transition:fly="{{x:-100, duration: 1000}}" class="mt-5 p-5 bg-black bg-opacity-50 rounded-md relative top-0 left-0">
             <ol class="ml-5 list-disc">
                 {#each data.descriptions as description}
