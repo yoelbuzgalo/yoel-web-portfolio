@@ -14,13 +14,10 @@
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"autoprefixer": "^10.4.19",
 		"postcss": "^8.4.40",
-		"svelte": "^5.0.0-next.136",
+		"svelte": "^5.0.0-next.224",
 		"tailwindcss": "^3.4.7",
 		"unplugin-icons": "^0.19.1",
 		"vite": "^5.0.3"
 	},
-	"type": "module",
-	"dependencies": {
-		"svelte-typewrite": "^2.0.0"
-	}
+	"type": "module"
 }
