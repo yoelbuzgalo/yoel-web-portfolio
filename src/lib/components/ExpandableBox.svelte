@@ -1,26 +1,37 @@
 <script>
     import { fly } from "svelte/transition";
-    import {expandedIndex} from '$lib/stores/expandableStore.js';
     import SolidArrow from '~icons/bxs/right-arrow';
     import LinedArrow from '~icons/bx/right-arrow';
+    import {createEventDispatcher} from 'svelte';
+    
+    const dispatch = createEventDispatcher();
     
     export let data;
-    export let index;
+    export let currentExpandedIndex;
+    export let assignedIndex;
 
     let isExpanded = false;
-    let thisElement;
+    let targettedElement;
 
-    expandedIndex.subscribe(value => {
-        isExpanded = (value === index);
-    });
+    $: isExpanded = currentExpandedIndex === assignedIndex;
 
-    let toggleExpand = () => {
-        expandedIndex.set(isExpanded ? null : index);
-        thisElement.scrollIntoView({block: "start"});
-    };
+    $: if (isExpanded) {
+        setTimeout(handleScroll, 1500);
+    }
+
+    const handleScroll = () => {
+        if (targettedElement) {
+            targettedElement.scrollIntoView({behavior: 'smooth', block: 'center'})
+        }
+    }
+
+    const handleExpand = () => {
+        dispatch("expanded", assignedIndex);
+    }
+
 </script>
 
-<div bind:this={thisElement} class="flex flex-col items-start justify-center my-5 bg-black bg-opacity-50 rounded-md p-5">
+<div bind:this={targettedElement} class="flex flex-col items-start justify-center my-5 bg-black bg-opacity-50 rounded-md p-5">
     <div class="flex flex-row justify-center items-center">
         {#if data.imgSrc}
             <img class="framed h-24 w-24 object-contain" src={data.imgSrc} alt={data.imgAlt}>
@@ -30,7 +41,7 @@
             <h2 class="px-3 font-semibold">{data.venue},{data.location}</h2>
             <h1 class="px-3 text-lg font-semibold">{data.date}</h1>
         </div>
-        <button on:click={toggleExpand}>
+        <button on:click={handleExpand}>
             {#if isExpanded}
                 <div class="rotate-icon">
                     <SolidArrow id="about-button-2"/>    

@@ -6,23 +6,18 @@
     let scrollFunction = () => {
         const target = document.querySelector(`#${nextSectionName}`);
         if (target) {
-            console.log("Found:" + target);
             target.scrollIntoView({behavior: 'smooth'});
-        } else {
-            console.log("Target not found")
         }
     }
 </script>
 
-<section id="{sectionName}" class="h-screen w-full snap-start mx-auto pt-28 pb-8 px-28 mb-2">
-    <div class="flex flex-col justify-between items-center h-full w-full">
-        <slot/>
-        {#if nextSectionName}
-        <button on:click={scrollFunction} class="floating relative bottom-0 w-fit h-fit z-10">
-            <ArrowDown height=30 width=30/>
+<section id="{sectionName}" class="min-h-screen w-full flex flex-col mb-2 py-10 ">
+    <slot/>
+    {#if nextSectionName}
+        <button on:click={scrollFunction} class="sticky bottom-0 left-0 right-0 mx-auto floating flex justify-center z-10">
+            <ArrowDown height={30} width={30}/>
         </button>
-        {/if}
-    </div>
+    {/if}
 </section>
 
 <style>

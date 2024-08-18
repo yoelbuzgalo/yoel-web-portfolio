@@ -31,14 +31,12 @@
     };
 </script>
 
-<header 
-    class="min-h-24 sticky w-full top-0 left-0 flex justify-center flex-col items-center"
->   
+<header class="h-24 w-full flex justify-center flex-col items-center z-50">   
     <div id="image-intro" class="flex flex-row justify-start items-center">
-        <img src="/images/logo.png" alt="custom yb logo icon" class="h-auto m-2 max-w-20 rounded-full bg-transparent"/>
+        <img src="/images/logo.png" alt="custom yb logo icon" class="max-w-20 m-2 rounded-full bg-transparent"/>
         <h1>Portfolio Website</h1>
     </div>
-    <nav>
+    <nav class="flex flex-row justify-between bg-opacity-0 items-center">
         <div class="mx-5" id="nav-buttons">
             <button on:click={() => redirect(validPages.HOME, "home-section")} id="home-button" class="nav-button">Home</button>
             <button on:click={() => redirect(validPages.HOME, "about-section")} id="about-button" class="nav-button">About</button>
@@ -49,10 +47,6 @@
 </header>
 
 <style>
-    nav {
-        @apply flex flex-row justify-between bg-opacity-0 items-center;
-    }
-
     .nav-button {
         /* constant CSS */
         @apply text-white uppercase rounded-md px-2 py-1 tracking-widest;

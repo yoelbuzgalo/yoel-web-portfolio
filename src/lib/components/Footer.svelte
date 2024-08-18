@@ -4,7 +4,7 @@
     import Email from '~icons/ic/baseline-email'
 </script>
 
-<footer class="flex flex-row justify-end items-center w-full absolute bottom-0">
+<footer class="sticky flex flex-row justify-end items-center h-fit w-full left-0 bottom-0">
     <a href="mailto:yoelbuzgalo@gmail.com" class="footer-button rounded-sm items-center justify-center mx-2">
         <Email height=25 width=25/>
     </a>
@@ -20,6 +20,6 @@
     .footer-button {
         @apply text-white;
         /* transition CSS */
-        @apply transition ease-in-out delay-150 hover:bg-opacity-50 hover:bg-black hover:shadow-sm hover:shadow-neon-green text-sm duration-300;
+        @apply transition ease-in-out delay-150 hover:bg-opacity-50 hover:bg-black hover:shadow-sm hover:scale-110 hover:shadow-neon-green text-sm duration-300 mb-2;
     }
 </style>
