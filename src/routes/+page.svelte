@@ -15,8 +15,8 @@
     })
 </script>
 
-<CustomSection sectionName="landing-section" nextSectionName="timeline-section">
-    <div class="flex flex-col items-center justify-around text-center py-10px-40 h-full w-full flex-grow">
+<CustomSection sectionName="landing-section" nextSectionName="timeline-section" takeFullScreen={true}>
+    <div class="flex flex-col items-center justify-evenly text-center py-10px-40 h-full w-full flex-grow">
         {#if isVisible}
             <img class="framed object-contain w-72 h-auto" transition:fly="{{y:100, duration: 1000}}" src="/images/tlv1.jpg" alt="Yoel Buzgalo sitting in Tel Aviv with laptop"/>
         {/if}
@@ -28,6 +28,12 @@
         </div>
     </div>
 </CustomSection>
-<CustomSection sectionName="timeline-section" nextSectionName={null}>
+<CustomSection sectionName="timeline-section" nextSectionName="graph-section" takeFullScreen={true}>
     <Timeline timelineData={data.timeline}/>
+</CustomSection>
+<CustomSection sectionName="graph-section" nextSectionName={null} takeFullScreen={false}>
+    <div>
+        <h1>About Me</h1>
+        <!-- TODO: Add about me section, with a blurb -->
+    </div>
 </CustomSection>

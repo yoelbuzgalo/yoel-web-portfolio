@@ -10,7 +10,7 @@
 
 </script>
 
-<div class="h-full w-full px-5 flex flex-col justify-center items-center object-contain">
+<div class="h-full w-full px-5 mb-5 flex flex-col justify-center items-center object-contain">
     {#each timelineData as item, index}
         <div class="h-full w-full grid grid-cols-9">
             {#if (index % 2 === 0)}
